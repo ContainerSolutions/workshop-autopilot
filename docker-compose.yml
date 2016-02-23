@@ -1,6 +1,6 @@
 # Nginx as a load-balancing tier and reverse proxy
 nginx:
-    build: nginx/
+    image: 0x74696d/autopilot_demo_nginx
     mem_limit: 128m
     ports:
     - 80:80
@@ -13,7 +13,7 @@ nginx:
 
 # the sales microservice
 sales:
-    build: sales/
+    image: 0x74696d/autopilot_demo_sales
     links:
     - consul
     mem_limit: 128m
@@ -23,7 +23,7 @@ sales:
 
 # the customers microservice
 customers:
-    build: customers/
+    image: 0x74696d/autopilot_demo_customers
     links:
     - consul
     mem_limit: 128m
