@@ -1,7 +1,7 @@
 {
-  "consul": "consul:8500",
+  "consul": "localhost:8500",
   "onStart": [
-    "consul-template", "-once", "-consul", "consul:8500", "-template",
+    "consul-template", "-once", "-consul", "localhost:8500", "-template",
     "/etc/containerbuddy/nginx.conf.ctmpl:/etc/nginx/nginx.conf:nginx -s reload"
   ],
   "services": [
@@ -19,7 +19,7 @@
       "name": "sales",
       "poll": 3,
       "onChange": [
-        "consul-template", "-once", "-consul", "consul:8500", "-template",
+        "consul-template", "-once", "-consul", "localhost:8500", "-template",
         "/etc/containerbuddy/nginx.conf.ctmpl:/etc/nginx/nginx.conf:nginx -s reload"
       ]
     },
@@ -27,7 +27,7 @@
       "name": "customers",
       "poll": 4,
       "onChange": [
-        "consul-template", "-once", "-consul", "consul:8500", "-template",
+        "consul-template", "-once", "-consul", "localhost:8500", "-template",
         "/etc/containerbuddy/nginx.conf.ctmpl:/etc/nginx/nginx.conf:nginx -s reload"
       ]
     }

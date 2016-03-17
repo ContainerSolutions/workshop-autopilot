@@ -21,7 +21,7 @@ var getUpstreams = function(force, callback) {
         callback(upstreamHosts);
     } else {
         http.get({
-            host: 'consul',
+            host: 'localhost',
             port: 8500,
             path: '/v1/catalog/service/sales'
         }, function(response) {
