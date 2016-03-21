@@ -1,0 +1,17 @@
+{
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "network": "HOST",
+      "image": "${env.IMAGE_PREFIX}/ap-sales"
+    }
+  },
+  "env" : {
+    "CONSUL_HTTP_SSL_VERIFY" : "true"
+  },
+  "id": "${env.IMAGE_PREFIX}/ap-sales",
+  "forcePullImage": "true",
+  "instances": 1,
+  "cpus": 0.1,
+  "mem": 128
+}
