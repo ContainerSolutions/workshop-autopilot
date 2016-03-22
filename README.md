@@ -22,3 +22,18 @@ The project is broken into 4 subsystems. Web clients communicate only with Nginx
 ![Completed project architecture](docs/arch.png)
 
 The `master` branch of this repo contains only an incomplete skeleton of services as a starting point. The configuration for Nginx and the Sales microservice are left incomplete, whereas the Customer microservice is complete and already includes the Containerbuddy configuration. Other branches will include the completed application as demonstrated at various workshops.
+
+## Running on mantl
+It is possible to run these containerbuddy examples on top of mantle.io, and use mantle's consul for service discovery.
+
+However, each mantle cluster has it's own certificate authority, and consul is can only be accesed through an nginx proxy via https. The certificate used by nginx is signed by mantle's certificate authority. Hence, each container wishing to interact with mantl's consul in a safe manner, eg, not ignoring uknown CA's, must import this CA.
+
+### Steps
+1. Copy `<mantleroot>/ssl/cacert.pem` to `<workshop-autopilot-root>/mantle_base_images/cacert.pem`
+2. Set the env vars `MANTL_CONTROL_HOST`, `MANTL_LOGIN`, `MANTL_PASSWORD` and `IMAGE_PREFIX` to correct values.
+3. Run `make build` to build the containers from the Dockerfiles
+4. Run `make publish` to publish to the docker hub
+5. run `make add` to add the containers to mantl via the marathon scripts
+
+Cleanup:
+1. run `make del` to add the remove the containers from marathon, when you're done.

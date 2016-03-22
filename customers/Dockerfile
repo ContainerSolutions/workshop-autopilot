@@ -1,6 +1,6 @@
 # a Node.js application container including Containerbuddy
 #FROM gliderlabs/alpine:3.3
-FROM mantle_alpine
+FROM mantl_alpine
 
 # install curl
 RUN apk update && apk add \

@@ -1,5 +1,6 @@
 # a minimal Nginx container including Containerbuddy and a simple virtulhost config
-FROM gliderlabs/alpine:3.3
+#FROM gliderlabs/alpine:3.3
+FROM mantl_alpine
 
 # install nginx and tooling we need
 RUN apk update && apk add \
