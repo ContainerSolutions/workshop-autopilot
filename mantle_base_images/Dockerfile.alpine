@@ -1,0 +1,4 @@
+FROM alpine:3.3
+RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
+ADD ./cacert.pem /usr/local/share/ca-certificates/mantle-ca.crt
+RUN update-ca-certificates
