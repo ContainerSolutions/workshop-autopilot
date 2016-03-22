@@ -1,5 +1,5 @@
 {
-  "consul": "https://consul.service.consul:8500",
+  "consul": "consul.service.consul:8500",
   "onStart": [
     "consul-template", "-once", "-consul", "localhost:8500", "-template",
     "/etc/containerbuddy/nginx.conf.ctmpl:/etc/nginx/nginx.conf"
